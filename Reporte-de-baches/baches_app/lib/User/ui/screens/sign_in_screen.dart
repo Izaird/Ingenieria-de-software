@@ -3,7 +3,7 @@ import 'package:baches_app/widgets/gradient_back.dart';
 import 'package:baches_app/widgets/button_01.dart';
 import 'package:baches_app/User/bloc/bloc_user.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
-import 'package:firebase_auth/firebase_auth.dart' as auth;
+// import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 class SignInScreen extends StatefulWidget {
   @override
