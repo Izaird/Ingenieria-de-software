@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:baches_app/widgets/gradient_back.dart';
+import 'package:baches_app/widgets/button_01.dart';
 
 class SignInScreen extends StatefulWidget {
   @override
@@ -22,6 +23,7 @@ Widget signInGoogleUI() {
       children: [
         GradientBack("", null),
         Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "Bienvenido \n Esta es tu aplicacion para reportar baches",
@@ -30,6 +32,12 @@ Widget signInGoogleUI() {
                 fontSize: 37.0,
                 color: Colors.white,
               ),
+            ),
+            Button01(
+              text: "Ingresar con Gmail",
+              onPressed: () {},
+              width: 300.0,
+              height: 50.0,
             ),
           ],
         ),
