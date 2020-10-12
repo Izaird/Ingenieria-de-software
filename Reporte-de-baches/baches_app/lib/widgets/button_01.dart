@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 //Generic button that can be use on any Widget
 class Button01 extends StatefulWidget {
-  double height;
-  double width;
-  VoidCallback onPressed;
+  final double height;
+  final double width;
+  final VoidCallback onPressed;
   final String text;
 
   Button01({
