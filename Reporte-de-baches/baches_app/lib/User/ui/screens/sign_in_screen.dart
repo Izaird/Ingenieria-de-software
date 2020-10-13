@@ -1,3 +1,4 @@
+import 'package:baches_app/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:baches_app/widgets/gradient_back.dart';
 import 'package:baches_app/widgets/button_01.dart';
@@ -18,7 +19,24 @@ class _SignInScreen extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     userBloc = BlocProvider.of(context);
-    return signInGoogleUI();
+    return _handleCurrentSession();
+  }
+
+  Widget _handleCurrentSession() {
+    return StreamBuilder(
+      stream: userBloc.authStatus,
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        //Snapshot contains our data
+        if (!snapshot.hasData || snapshot.hasError) {
+          //It we don't have any data or we have an error we stay at
+          //Sthe login screen
+          return signInGoogleUI();
+        } else {
+          //if we have data then we proced to the main screen.
+          return NavigationBar();
+        }
+      },
+    );
   }
 
   Widget signInGoogleUI() {

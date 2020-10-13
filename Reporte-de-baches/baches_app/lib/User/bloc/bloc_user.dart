@@ -7,7 +7,19 @@ import 'package:baches_app/User/repository/auth_repository.dart';
 class UserBloc implements Bloc {
   final _authRepository = AuthRepository();
 
-//Sign In to the application
+  //Data streams
+  //Stream  - Firebase
+  //We dont have to use the class StreamController because Firebase already give
+  //us the data as a Stream
+
+  Stream<auth.User> streamFirebase =
+      auth.FirebaseAuth.instance.authStateChanges();
+
+  //Method to get the session status.
+  Stream<auth.User> get authStatus => streamFirebase;
+
+  //Use cases
+  //1. Sign in to the application
   Future<auth.User> signIn() {
     return _authRepository.signInFirebase();
   }

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Baches app',
-          home: NavigationBar(),
+          home: SignInScreen(),
         ),
         bloc: UserBloc());
   }
