@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:baches_app/Bache/ui/screens/home_bache.dart';
+import 'package:lipsum/lipsum.dart' as lipsum;
 
 class NavigationBar extends StatelessWidget {
   @override
@@ -19,17 +20,20 @@ class NavigationBar extends StatelessWidget {
           switch (index) {
             case 0:
               return CupertinoTabView(
-                builder: (BuildContext context) => HomeBache(),
+                builder: (BuildContext context) =>
+                    HomeBache(lipsum.createSentence()),
               );
               break;
             case 1:
               return CupertinoTabView(
-                builder: (BuildContext context) => HomeBache(),
+                builder: (BuildContext context) =>
+                    HomeBache(lipsum.createSentence()),
               );
               break;
             case 2:
               return CupertinoTabView(
-                builder: (BuildContext context) => HomeBache(),
+                builder: (BuildContext context) =>
+                    HomeBache(lipsum.createSentence()),
               );
               break;
           }
