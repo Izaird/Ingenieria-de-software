@@ -16,4 +16,11 @@ class FirebaseAuthAPI {
 
     return userCredential.user;
   }
+
+//We need to close the session on both sides.
+  void signOut() async {
+    await _auth.signOut().then((value) => print("Se a cerrado la sesion"));
+    googleSignIn.signOut();
+    print("Sesiones cerradas");
+  }
 }
