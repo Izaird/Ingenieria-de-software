@@ -1,0 +1,66 @@
+\documentclass[letterpaper,11pt]{article}
+
+%%%%%%%   PAQUETES   %%%%%%%
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{wallpaper}
+\usepackage[pdfstartview=FitH]{hyperref}
+\usepackage{tabularx}
+\usepackage{glossaries}
+\usepackage{geometry}
+%\usepackage[autostyle=true,german=quotes]{csquotes}
+\usepackage[capitalise]{cleveref}
+\usepackage{appendix}
+\usepackage{pdfpages}
+
+
+
+\begin{document}
+\include{portada}
+\section{Análisis}
+\subsection{Objetivos}
+Los objetivos de la primera iteración son
+\begin{enumerate}
+    \item Elaborar un sistema que le permita al Gobierno de La Ciudad de México recibir la información necesaria para la atención de baches.
+    \item Notificar al Gobierno de la Ciudad de México por medio del sistema.
+\end{enumerate}
+\subsection{Alternativas}
+Se contemplaron las siguientes soluciones al problema, dado el tiempo limite:
+\begin{enumerate}
+    \item Mapa interactivo de la CDMX, que marque la ubicación del bache.
+    \item Formulario con la ubicación del bache y 4 fotos máximo de tamaño y formato especifico.
+    \begin{enumerate}
+        \item Bot de Twitter que tome la información del formulario y notifique a las autoridades correspondientes.
+        \item Almacenar los datos en una base de datos o JSON para su posterior envió a las autoridades correspondientes.
+    \end{enumerate}
+\end{enumerate}
+La solución elegida fue la 2.b) dado que es la de menor riesgo y la que mas rápido se puede implementar por el equipo de trabajo.
+\subsection{Riegos}
+Los principales riesgos son:
+\begin{enumerate}
+    \item Sobre-analizar y no dejar tiempo para el desarrollo y pruebas.
+    \item Entrada al mercado de alternativas.
+\end{enumerate}
+\section{Diseño}
+\subsection{Requerimientos}
+\subsubsection{Requerimientos del usuario} 
+\begin{enumerate}
+    \item Los usuarios generales deberán poder llenar un formulario con la ubicación del bache.
+    \item Los usuarios generales podrán subir hasta 4 fotos.
+    \item Los usuarios de cuadrilla tendrán un formulario distinto, donde podrán dar más detalles.
+\end{enumerate}
+\subsubsection{Requisitos del sistema}
+Requisitos Funcionales:
+\begin{enumerate}
+    \item El sistema deberá dar a conocer la ubicación del bache.
+    \item Se podrá subir al menos una foto del bache.
+    \item El sistema contará con un formulario distinto para cuadrillas de bacheo de la CDMX.
+\end{enumerate}
+
+Requisitos No Funcionales:
+\begin{enumerate}
+    \item El sistema podrá visualizarse en navegadores web (Chrome, Edge, Firefox, Safari, Opera).
+    \item El sistema tendrá una interfaz optimizada para dispositivos móviles.
+\end{enumerate}
+\end{document}
