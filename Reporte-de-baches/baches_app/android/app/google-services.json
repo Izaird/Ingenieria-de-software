@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "982461352050",
+    "firebase_url": "https://baches-app-520a6.firebaseio.com",
+    "project_id": "baches-app-520a6",
+    "storage_bucket": "baches-app-520a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982461352050:android:08ee2fac14fded67a21aeb",
+        "android_client_info": {
+          "package_name": "com.example.baches_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982461352050-it1mlnt53jen0o3lpdtfa66h94jv4btm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.baches_app",
+            "certificate_hash": "db92e4080c37a931b589e33e5367575bdd603bf9"
+          }
+        },
+        {
+          "client_id": "982461352050-cm97ucddhmhr96ph7loo90lihup6vue8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTwz26BtnEXE3asWZ4zexXMbJXTRn2soo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982461352050-cm97ucddhmhr96ph7loo90lihup6vue8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
