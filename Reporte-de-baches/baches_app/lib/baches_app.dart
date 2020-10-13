@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:baches_app/Bache/ui/screens/home_bache.dart';
 import 'package:lipsum/lipsum.dart' as lipsum;
 
-class NavigationBar extends StatelessWidget {
+class BachesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

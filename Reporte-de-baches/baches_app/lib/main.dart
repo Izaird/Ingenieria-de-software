@@ -1,5 +1,4 @@
 // import 'package:baches_app/navigation_bar.dart;
-import 'package:baches_app/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:baches_app/User/bloc/bloc_user.dart';
