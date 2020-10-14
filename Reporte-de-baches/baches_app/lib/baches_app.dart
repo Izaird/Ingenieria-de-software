@@ -55,7 +55,7 @@ class BachesApp extends StatelessWidget {
                 builder: (BuildContext context) {
                   return BlocProvider<UserBloc>(
                     bloc: UserBloc(),
-                    child: HeaderAppBar(),
+                    child: ProfileBaches(),
                   );
                 },
               );
@@ -65,7 +65,7 @@ class BachesApp extends StatelessWidget {
                 builder: (BuildContext context) {
                   return BlocProvider<UserBloc>(
                     bloc: UserBloc(),
-                    child: ProfileBaches(),
+                    child: HeaderAppBar(),
                   );
                 },
               );

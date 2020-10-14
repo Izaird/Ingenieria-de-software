@@ -1,10 +1,11 @@
 import 'package:baches_app/baches_app.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:baches_app/widgets/gradient_back.dart';
 import 'package:baches_app/widgets/button_01.dart';
 import 'package:baches_app/User/bloc/bloc_user.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
-// import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 class SignInScreen extends StatefulWidget {
   @override
@@ -59,7 +60,10 @@ class _SignInScreen extends State<SignInScreen> {
               Button01(
                 text: "Ingresar con Gmail",
                 onPressed: () {
-                  userBloc.signIn();
+                  userBloc.signOut();
+                  userBloc
+                      .signIn()
+                      .then((auth.User user) => print("El usuario es $user"));
                 },
                 width: 300.0,
                 height: 50.0,
