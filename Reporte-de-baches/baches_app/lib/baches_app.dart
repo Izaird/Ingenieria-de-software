@@ -1,10 +1,11 @@
-import 'package:baches_app/User/bloc/bloc_user.dart';
-import 'package:baches_app/User/ui/screens/profile_baches.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:baches_app/Bache/ui/screens/home_bache.dart';
 import 'package:lipsum/lipsum.dart' as lipsum;
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:baches_app/User/bloc/bloc_user.dart';
+import 'package:baches_app/Bache/ui/screens/home_bache.dart';
+import 'package:baches_app/User/ui/screens/profile_baches.dart';
+import 'package:baches_app/Bache/ui/screens/header_appbar.dart';
 
 class BachesApp extends StatelessWidget {
   @override
@@ -12,6 +13,7 @@ class BachesApp extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: CupertinoTabScaffold(
         tabBar: CupertinoTabBar(
+          //Buttons of the tabBar
           items: [
             BottomNavigationBarItem(
               icon: Icon(
@@ -22,14 +24,14 @@ class BachesApp extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.search,
+                Icons.person,
                 color: Colors.indigo,
               ),
               label: (""),
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.person,
+                Icons.info,
                 color: Colors.indigo,
               ),
               label: (""),
@@ -53,7 +55,7 @@ class BachesApp extends StatelessWidget {
                 builder: (BuildContext context) {
                   return BlocProvider<UserBloc>(
                     bloc: UserBloc(),
-                    child: ProfileBaches(),
+                    child: HeaderAppBar(),
                   );
                 },
               );

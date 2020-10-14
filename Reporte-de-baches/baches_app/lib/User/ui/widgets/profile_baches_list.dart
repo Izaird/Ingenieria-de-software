@@ -7,12 +7,12 @@ class ProfileBachesList extends StatelessWidget {
       'Knuckles Mountains Range',
       'Hiking. Water fall hunting. Natural bath',
       'Scenery & Photography',
-      '123,123,123');
+      '27/ago/20');
   Bache bache2 = new Bache(
       'Mountains',
       'Hiking. Water fall hunting. Natural bath',
       'Scenery & Photography',
-      '321,321,321');
+      '27/ago/2027/ago/20');
 
   @override
   Widget build(BuildContext context) {
