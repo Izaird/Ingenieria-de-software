@@ -1,3 +1,6 @@
+import 'package:baches_app/User/model/user.dart';
+import 'package:baches_app/User/repository/cloud_firestore_api.dart';
+import 'package:baches_app/User/repository/cloud_firestore_repository.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 /*We import the package as auth to avoid confusion with the user class*/
@@ -23,6 +26,11 @@ class UserBloc implements Bloc {
   Future<auth.User> signIn() {
     return _authRepository.signInFirebase();
   }
+
+  //2. Register user on the database
+  final _cloudFirestorRepository = CloudFireStoreRepository();
+  void updateUserData(User user) =>
+      _cloudFirestorRepository.updateUserDataFirestore(user);
 
   signOut() {
     _authRepository.signOut();

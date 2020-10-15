@@ -6,6 +6,7 @@ import 'package:baches_app/widgets/button_01.dart';
 import 'package:baches_app/User/bloc/bloc_user.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:baches_app/User/model/user.dart' as baches_user;
 
 class SignInScreen extends StatefulWidget {
   @override
@@ -61,9 +62,14 @@ class _SignInScreen extends State<SignInScreen> {
                 text: "Ingresar con Gmail",
                 onPressed: () {
                   userBloc.signOut();
-                  userBloc
-                      .signIn()
-                      .then((auth.User user) => print("El usuario es $user"));
+                  userBloc.signIn().then((auth.User user) {
+                    userBloc.updateUserData(baches_user.User(
+                      uId: user.uid,
+                      name: user.displayName,
+                      email: user.email,
+                      photoURL: user.photoURL,
+                    ));
+                  });
                 },
                 width: 300.0,
                 height: 50.0,
