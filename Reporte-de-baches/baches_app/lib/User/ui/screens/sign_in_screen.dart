@@ -1,5 +1,5 @@
 import 'package:baches_app/baches_app.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:baches_app/widgets/gradient_back.dart';
 import 'package:baches_app/widgets/button_01.dart';
@@ -18,10 +18,9 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreen extends State<SignInScreen> {
   UserBloc userBloc;
   double screenWidth;
-
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    screenWidth = MediaQuery.of(context).size.width;
     userBloc = BlocProvider.of(context);
     return _handleCurrentSession();
   }

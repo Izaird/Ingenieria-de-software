@@ -3,13 +3,13 @@ import 'package:baches_app/User/ui/widgets/profile_bache.dart';
 import 'package:baches_app/Bache/model/bache.dart';
 
 class ProfileBachesList extends StatelessWidget {
-  Bache bache = Bache(
+  final Bache bache = Bache(
       where: "Knuckles Mountains Range",
       description: "Hiking. Water fall hunting. Natural bath",
       urlImage:
           "https://www.cronica.com.ar/__export/1562455681828/sites/cronica/img/2019/07/06/bache_gigante.jpg_1734428432.jpg",
       dislikes: 3);
-  Bache bache2 = Bache(
+  final Bache bache2 = Bache(
       where: "Knuckles Mountains Range",
       description: "Hiking. Water fall hunting. Natural bath",
       urlImage:

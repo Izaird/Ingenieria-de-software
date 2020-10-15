@@ -7,8 +7,8 @@ class GradientBack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidht = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidht = MediaQuery.of(context).size.width;
 
     if (height == null) {
       height = screenHeight;
