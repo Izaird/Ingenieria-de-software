@@ -7,6 +7,8 @@ import 'package:baches_app/Bache/ui/screens/home_bache.dart';
 import 'package:baches_app/User/ui/screens/profile_baches.dart';
 import 'package:baches_app/Bache/ui/screens/header_appbar.dart';
 
+import 'Bache/ui/screens/info_about_baches.dart';
+
 class BachesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,7 @@ class BachesApp extends StatelessWidget {
                 builder: (BuildContext context) {
                   return BlocProvider<UserBloc>(
                     bloc: UserBloc(),
-                    child: HomeBache(lipsum.createWord()),
+                    child: HomeBache(),
                   );
                 },
               );
@@ -65,7 +67,7 @@ class BachesApp extends StatelessWidget {
                 builder: (BuildContext context) {
                   return BlocProvider<UserBloc>(
                     bloc: UserBloc(),
-                    child: HeaderAppBar(),
+                    child: InfoAboutBaches('asdfasldfs'),
                   );
                 },
               );

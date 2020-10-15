@@ -4,7 +4,7 @@ import 'package:baches_app/widgets/floating_action_button_green.dart';
 class CardImageWithButton extends StatelessWidget {
   final double height;
   final double width;
-  final double left = 20.0;
+  final double left;
   final String pathImage;
   final VoidCallback onPressedFabIcon;
   final IconData iconData;
@@ -16,6 +16,7 @@ class CardImageWithButton extends StatelessWidget {
     @required this.height,
     @required this.onPressedFabIcon,
     @required this.iconData,
+    this.left = 0,
   });
 
   @override

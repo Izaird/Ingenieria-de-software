@@ -68,13 +68,16 @@ class _AddPlaceScreen extends State<AddBacheScreen> {
                   child: CardImageWithButton(
                     pathImage: "assets/img/beach_palm.jpeg",
                     iconData: Icons.camera,
-                    width: 350.0,
-                    height: 250.0,
+                    width: 300.0,
+                    height: 350.0,
                   ),
                 ), //Foto
                 Container(
                   //TextField Title
-                  margin: EdgeInsets.only(bottom: 20.0),
+                  margin: EdgeInsets.only(
+                    bottom: 20.0,
+                    top: 20.0,
+                  ),
                   child: TextInput(
                     hintText: "Title",
                     inputType: null,
