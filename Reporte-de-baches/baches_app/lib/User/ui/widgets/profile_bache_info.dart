@@ -3,6 +3,7 @@ import 'package:baches_app/Bache/model/bache.dart';
 import 'package:baches_app/widgets/floating_action_button_green.dart';
 
 class ProfileBacheInfo extends StatelessWidget {
+  //we add the variable bache to get an instance of the model bache
   final Bache bache;
 
   ProfileBacheInfo(this.bache);
@@ -12,7 +13,7 @@ class ProfileBacheInfo extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     final bache = Text(
-      this.bache.name,
+      this.bache.where,
       style: TextStyle(
           fontFamily: 'Lato', fontSize: 20.0, fontWeight: FontWeight.bold),
     );
@@ -31,7 +32,7 @@ class ProfileBacheInfo extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                this.bache.type,
+                this.bache.description,
                 style: TextStyle(
                     color: Color.fromRGBO(0, 0, 0, 0.4),
                     fontFamily: 'Lato',
@@ -40,15 +41,23 @@ class ProfileBacheInfo extends StatelessWidget {
               )
             ]));
 
-    final steps = Text(
-      'Steps ${this.bache.date}',
+//this variable is to give style to the bache report date
+    final date = Text(
+      DateTime.now().toString(),
       style: TextStyle(
           fontFamily: 'Lato',
           fontSize: 14.0,
           fontWeight: FontWeight.bold,
           color: Colors.amber),
     );
-
+    final dislikes = Text(
+      'Heart  ${this.bache.dislikes}',
+      style: TextStyle(
+          fontFamily: 'Lato',
+          fontSize: 14.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.amber),
+    );
     final card = Container(
       width: screenWidth * 0.65,
       decoration: BoxDecoration(
@@ -61,16 +70,25 @@ class ProfileBacheInfo extends StatelessWidget {
                 offset: Offset(0.0, 5.0))
           ]),
       child: Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[bache, placeInfo, steps],
-          )),
+        padding: EdgeInsets.all(15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            bache,
+            placeInfo,
+            date,
+            dislikes,
+          ],
+        ),
+      ),
     );
 
     return Stack(
       alignment: Alignment(0.8, 1.25),
-      children: <Widget>[card, FloatingActionButtonGreen()],
+      children: <Widget>[
+        card,
+        FloatingActionButtonGreen(),
+      ],
     );
   }
 }

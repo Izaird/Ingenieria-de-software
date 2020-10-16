@@ -6,11 +6,9 @@ import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:baches_app/User/model/user.dart';
 
 class ProfileHeader extends StatelessWidget {
-  UserBloc userBloc;
-  User user;
   @override
   Widget build(BuildContext context) {
-    userBloc = BlocProvider.of<UserBloc>(context);
+    final UserBloc userBloc = BlocProvider.of<UserBloc>(context);
 
     return StreamBuilder(
       stream: userBloc.streamFirebase,
@@ -73,7 +71,7 @@ class ProfileHeader extends StatelessWidget {
     } else {
       print("Logged");
       print(snapshot.data);
-      user = User(
+      final User user = User(
           name: snapshot.data.displayName,
           email: snapshot.data.email,
           photoURL: snapshot.data.photoUrl);

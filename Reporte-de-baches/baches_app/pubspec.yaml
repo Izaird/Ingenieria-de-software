@@ -84,3 +84,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  assets:
+    - assets/img/girl.jpg
+    - assets/img/beach.jpeg
+    - assets/img/beach_palm.jpeg
