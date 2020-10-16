@@ -1,11 +1,15 @@
 import 'dart:io';
+import 'package:baches_app/Bache/model/bache.dart';
 import 'package:baches_app/Bache/ui/widgets/card_image.dart';
 import 'package:baches_app/Bache/ui/widgets/text_input_location.dart';
+import 'package:baches_app/User/bloc/bloc_user.dart';
+import 'package:baches_app/widgets/button_purple.dart';
 import 'package:baches_app/widgets/gradient_back.dart';
 import 'package:baches_app/widgets/text_input.dart';
 import 'package:baches_app/widgets/title_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
 class AddBacheScreen extends StatefulWidget {
   final File image;
@@ -23,6 +27,8 @@ class _AddPlaceScreen extends State<AddBacheScreen> {
   Widget build(BuildContext context) {
     final _controllerTitlePlace = TextEditingController();
     final _controllerDescriptionPlace = TextEditingController();
+    final _controllerLocation = TextEditingController();
+    UserBloc userBloc = BlocProvider.of(context);
 
     return Scaffold(
       body: Stack(
@@ -95,8 +101,38 @@ class _AddPlaceScreen extends State<AddBacheScreen> {
                 Container(
                   margin: EdgeInsets.only(top: 20.0),
                   child: TextInputLocation(
-                      hintText: "Add Location", iconData: Icons.location_on),
-                )
+                    hintText: "Add Location",
+                    iconData: Icons.location_on,
+                    controller: _controllerLocation,
+                  ),
+                ),
+                Container(
+                  width: 70.0,
+                  child: ButtonPurple(
+                    buttonText: "Add Place",
+                    onPressed: () {
+                      //1. Firebase Storage
+                      //url -
+
+                      //2. Cloud Firestore
+                      //Place - title, description, url, userOwner, likes
+                      userBloc
+                          .updateBacheData(
+                        Bache(
+                          where: _controllerLocation.text,
+                          description: _controllerDescriptionPlace.text,
+                          // urlImage: s
+                          // userOwner: null,
+                          dislikes: 0,
+                        ),
+                      )
+                          .whenComplete(() {
+                        print("Termino");
+                        Navigator.pop(context);
+                      });
+                    },
+                  ),
+                ),
               ],
             ),
           )

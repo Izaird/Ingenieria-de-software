@@ -33,7 +33,10 @@ class Definition extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[title, description, ButtonPurple("Navigate")],
+      children: <Widget>[
+        title,
+        description,
+      ],
     );
   }
 }

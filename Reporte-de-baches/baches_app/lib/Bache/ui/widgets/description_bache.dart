@@ -69,7 +69,14 @@ class DescriptionBache extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[title_stars, description, ButtonPurple("Navigate")],
+      children: <Widget>[
+        title_stars,
+        description,
+        ButtonPurple(
+          buttonText: "Navigate",
+          onPressed: () {},
+        ),
+      ],
     );
   }
 }
