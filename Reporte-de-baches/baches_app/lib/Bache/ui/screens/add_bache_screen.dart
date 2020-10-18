@@ -72,7 +72,7 @@ class _AddPlaceScreen extends State<AddBacheScreen> {
                 Container(
                   alignment: Alignment.center,
                   child: CardImageWithButton(
-                    pathImage: "assets/img/beach_palm.jpeg",
+                    pathImage: widget.image.path,
                     iconData: Icons.camera,
                     width: 300.0,
                     height: 350.0,
