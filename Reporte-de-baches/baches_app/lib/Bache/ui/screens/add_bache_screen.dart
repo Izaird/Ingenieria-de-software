@@ -7,6 +7,8 @@ import 'package:baches_app/widgets/button_purple.dart';
 import 'package:baches_app/widgets/gradient_back.dart';
 import 'package:baches_app/widgets/text_input.dart';
 import 'package:baches_app/widgets/title_header.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
@@ -111,24 +113,44 @@ class _AddPlaceScreen extends State<AddBacheScreen> {
                   child: ButtonPurple(
                     buttonText: "Add Place",
                     onPressed: () {
-                      //1. Firebase Storage
-                      //url -
+                      //Obtain the id of the current user
+                      userBloc.currentUser().then((auth.User user) {
+                        //1. Firebase Storage
+                        //url -
+                        if (user != null) {
+                          String uid = user.uid;
+                          String path =
+                              "${uid}/${DateTime.now().toString()}.jpg";
 
-                      //2. Cloud Firestore
-                      //Place - title, description, url, userOwner, likes
-                      userBloc
-                          .updateBacheData(
-                        Bache(
-                          where: _controllerLocation.text,
-                          description: _controllerDescriptionPlace.text,
-                          // urlImage: s
-                          // userOwner: null,
-                          dislikes: 0,
-                        ),
-                      )
-                          .whenComplete(() {
-                        print("Termino");
-                        Navigator.pop(context);
+                          userBloc.uploadFile(path, widget.image)
+                              //We recover the data of the image that we upload
+                              .then((StorageUploadTask storageUploadTask) {
+                            storageUploadTask.onComplete
+                                .then((StorageTaskSnapshot snapshot) {
+                              snapshot.ref.getDownloadURL().then((urlImage) {
+                                print("URLIMAGE: ${urlImage}");
+
+                                //2. Cloud Firestore
+                                //Place - title, description, url, userOwner, likes
+                                userBloc
+                                    .updateBacheData(
+                                  Bache(
+                                    where: _controllerLocation.text,
+                                    description:
+                                        _controllerDescriptionPlace.text,
+                                    urlImage: urlImage,
+                                    // userOwner: uid,
+                                    dislikes: 0,
+                                  ),
+                                )
+                                    .whenComplete(() {
+                                  print("Termino");
+                                  Navigator.pop(context);
+                                });
+                              });
+                            });
+                          });
+                        }
                       });
                     },
                   ),

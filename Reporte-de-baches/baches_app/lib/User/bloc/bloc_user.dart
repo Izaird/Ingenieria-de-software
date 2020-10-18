@@ -1,7 +1,11 @@
+import 'dart:io';
 import 'package:baches_app/Bache/model/bache.dart';
+import 'package:baches_app/Bache/repository/firebase_storage_repository.dart';
 import 'package:baches_app/User/model/user.dart';
 // import 'package:baches_app/User/repository/cloud_firestore_api.dart';
 import 'package:baches_app/User/repository/cloud_firestore_repository.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 /*We import the package as auth to avoid confusion with the user class*/
@@ -22,6 +26,12 @@ class UserBloc implements Bloc {
   //Method to get the session status.
   Stream<auth.User> get authStatus => streamFirebase;
 
+  //Method to get the id of the current user
+  Future<auth.User> currentUser() async {
+    auth.User user = auth.FirebaseAuth.instance.currentUser;
+    return user;
+  }
+
   //Use cases
   //1. Sign in to the application
   Future<auth.User> signIn() => _authRepository.signInFirebase();
@@ -32,6 +42,11 @@ class UserBloc implements Bloc {
       _cloudFirestorRepository.updateUserDataFirestore(user);
   Future<void> updateBacheData(Bache bache) =>
       _cloudFirestorRepository.updateBacheData(bache);
+
+  //Firebase StorageA
+  final _firebaseStorageRepository = FirebaseStorageRepository();
+  Future<StorageUploadTask> uploadFile(String path, File image) =>
+      _firebaseStorageRepository.uploadFile(path, image);
 
   signOut() {
     _authRepository.signOut();
